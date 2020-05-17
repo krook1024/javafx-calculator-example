@@ -55,4 +55,12 @@ public class CalculatorController {
         }
     }
 
+    @FXML
+    public void resetCalculator(ActionEvent event) {
+        number1 = 0;
+        operator = "";
+        display.setText("0");
+        System.out.println("AC");
+    }
+
 }
