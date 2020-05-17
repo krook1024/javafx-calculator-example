@@ -6,6 +6,10 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 
+import java.text.DecimalFormat;
+import java.text.DecimalFormatSymbols;
+import java.util.Locale;
+
 public class CalculatorController {
 
     @FXML
@@ -43,8 +47,8 @@ public class CalculatorController {
            }
            double number2 = Double.parseDouble(display.getText());
            double result = calculator.calculate(number1, number2, operator);
-           display.setText(String.format("%.0f", result));
-           operator = "";
+            setDisplayContent(result);
+            operator = "";
         } else {
             if (! operator.isEmpty()) {
                 return;
@@ -55,12 +59,40 @@ public class CalculatorController {
         }
     }
 
+    /**
+     * Sets the content of the display while paying attention
+     * not to print unnecessary decimal dots.
+     *
+     * @param num the new content
+     */
+    private void setDisplayContent(double num) {
+        DecimalFormat df = new DecimalFormat("0", DecimalFormatSymbols.getInstance(Locale.ENGLISH));
+        df.setMaximumFractionDigits(340); // 340 = DecimalFormat.DOUBLE_FRACTION_DIGITS
+
+        display.setText(df.format(num));
+    }
+
     @FXML
     public void resetCalculator(ActionEvent event) {
         number1 = 0;
         operator = "";
+        startNumber = true;
         display.setText("0");
         System.out.println("AC");
+    }
+
+    public void decimalDot(ActionEvent event) {
+        String s = display.getText();
+        if ( ! s.contains(".")) {
+            System.out.println(".");
+            double current = Double.parseDouble(display.getText());
+            display.setText(String.format("%.0f.", current));
+        }
+    }
+
+    public void numberSignChange(ActionEvent event) {
+        double current = Double.parseDouble(display.getText());
+        setDisplayContent(- current);
     }
 
 }
