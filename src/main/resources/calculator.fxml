@@ -40,9 +40,9 @@
             <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#processDigit" text="0" GridPane.rowIndex="4" />
             <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#processOperator" style="-fx-background-color: lightgreen;" text="=" GridPane.columnIndex="2" GridPane.rowIndex="4" />
             <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#processOperator" text="-" GridPane.columnIndex="3" GridPane.rowIndex="4" />
-            <Button layoutX="230.0" layoutY="127.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#processOperator" style="-fx-background-color: lightgreen;" text="." GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <Button layoutX="230.0" layoutY="127.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#decimalDot" style="-fx-background-color: lightgreen;" text="." GridPane.columnIndex="1" GridPane.rowIndex="4" />
             <Button layoutX="120.0" layoutY="167.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#resetCalculator" style="-fx-background-color: salmon;" text="AC" />
-            <Button layoutX="230.0" layoutY="47.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#processDigit" text="±" GridPane.columnIndex="3" />
+            <Button layoutX="230.0" layoutY="47.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#numberSignChange" text="±" GridPane.columnIndex="3" />
          </children>
       </GridPane>
    </children>
